@@ -1,0 +1,80 @@
+{
+    // Python Extension settings for language server, autocomplete, and analysis
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe", // Windows
+    // "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",     // macOS/Linux
+    
+    "python.analysis.extraPaths": [
+        // Path to your venv's site-packages where fake-bpy-module-latest is installed
+        "${workspaceFolder}/.venv/Lib/site-packages", // Windows path
+        // "${workspaceFolder}/.venv/lib/python3.10/site-packages", // macOS/Linux path (adjust Python version if needed)
+        
+        // Optional: Path to Blender's internal modules for additional autocomplete
+        // Update the path below to match your Blender installation
+        // "C:/Program Files/Blender Foundation/Blender 4.2/4.2/scripts/modules", // Windows example
+        // "/Applications/Blender.app/Contents/Resources/4.2/scripts/modules",     // macOS example
+        // "/usr/share/blender/scripts/modules"                                    // Linux example
+    ],
+    
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/.venv/Lib/site-packages", // Windows path
+        // "${workspaceFolder}/.venv/lib/python3.10/site-packages", // macOS/Linux path (adjust Python version if needed)
+        
+        // Optional: Path to Blender's internal modules for additional autocomplete
+        // Update the path below to match your Blender installation
+        // "C:/Program Files/Blender Foundation/Blender 4.2/4.2/scripts/modules", // Windows example
+        // "/Applications/Blender.app/Contents/Resources/4.2/scripts/modules",     // macOS example
+        // "/usr/share/blender/scripts/modules"                                    // Linux example
+    ],
+    
+    "python.languageServer": "Pylance", // Pylance offers excellent performance and features
+    
+    // Blender Development Extension settings
+    "blender.blenderExecutable": {
+        // REQUIRED: Update this path to your Blender executable
+        // Windows example: "C:/Program Files/Blender Foundation/Blender 4.2/blender.exe"
+        // macOS example: "/Applications/Blender.app/Contents/MacOS/Blender"
+        // Linux example: "/usr/bin/blender" or path to your Blender binary
+        "path": "C:/Program Files/Blender Foundation/Blender 4.2/blender.exe"
+    },
+    
+    "blender.addon.reloadOnSave": true, // Automatically reloads your add-on in Blender when files are saved
+    "blender.addon.debug.justMyCode": false, // Set to false to debug into third-party libraries
+    
+    "blender.environmentVariables": {
+        // Optional: Creates a separate user resources directory for VS Code Blender development,
+        // isolating it from your daily Blender setup
+        "BLENDER_USER_RESOURCES": "${workspaceFolder}/.blender_vscode_development"
+    },
+    
+    "blender.python.executable": {
+        // IMPORTANT: Point this to the Python executable within your .venv
+        // This ensures the Blender Debugger uses your venv's interpreter
+        "path": "${workspaceFolder}/.venv/Scripts/python.exe" // Windows
+        // "path": "${workspaceFolder}/.venv/bin/python"      // macOS/Linux
+    },
+    
+    // Optional: Exclude .venv and Blender development directory from VS Code's file explorer
+    "files.exclude": {
+        "**/.venv": true,
+        "**/.blender_vscode_development": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    
+    "search.exclude": {
+        "**/.venv": true,
+        "**/.blender_vscode_development": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    
+    // Python formatting and linting
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    
+    // File associations
+    "files.associations": {
+        "*.py": "python"
+    }
+}

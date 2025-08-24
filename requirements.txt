@@ -1,0 +1,9 @@
+# Blender API stubs for autocomplete and type checking
+fake-bpy-module-latest
+
+# Optional: Code formatting and linting tools
+black
+pylint
+
+# Optional: Type checking
+mypy

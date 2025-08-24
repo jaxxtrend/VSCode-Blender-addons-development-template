@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Blender: Launch & Debug",
+            "type": "blender",
+            "request": "launch",
+            "program": "${blender.blenderExecutable.path}", // Uses the path from settings.json
+            "addon": "${workspaceFolder}/addon", // Points to your addon directory
+            "debugPort": 8080, // Default debug port, can be changed if needed
+            "justMyCode": false, // False allows stepping into Blender's own Python code or external libraries
+            "stopOnEntry": false, // Set to true if you want to break immediately on script start
+            "console": "internalConsole",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/.venv/Lib/site-packages:${env:PYTHONPATH}" // Windows
+                // "PYTHONPATH": "${workspaceFolder}/.venv/lib/python3.10/site-packages:${env:PYTHONPATH}" // macOS/Linux
+            }
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Python: Addon Module",
+            "type": "python", 
+            "request": "launch",
+            "module": "addon",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        }
+    ]
+}
