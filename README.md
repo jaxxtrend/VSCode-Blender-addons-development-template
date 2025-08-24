@@ -1,0 +1,1 @@
+# VSCode-Blender-addons-development-template
